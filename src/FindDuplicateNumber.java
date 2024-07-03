@@ -1,4 +1,4 @@
-public class FindAllDuplicateNumbers {
+public class FindDuplicateNumber {
     public static int findDuplicate(int[] nums){
         int i = 0;
         while(i < nums.length){
