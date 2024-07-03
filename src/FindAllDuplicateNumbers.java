@@ -2,20 +2,19 @@ public class FindAllDuplicateNumbers {
     public static int findDuplicate(int[] nums){
         int i = 0;
         while(i < nums.length){
-            int correctIndex = nums[i] - 1;
-            if(nums[i] != nums[correctIndex]){
-                swap(nums, i, correctIndex);
+            if(nums[i] != i + 1) {
+                int correctIndex = nums[i] - 1;
+                if (nums[i] != nums[correctIndex]) {
+                    swap(nums, i, correctIndex);
+                } else {
+                    return nums[i];
+                }
             }
             else{
                 i++;
             }
         }
-        for(int index = 0; index < nums.length; index++){
-            if(nums[index] != index + 1){
-                return nums[index];
-            }
-        }
-        return nums.length;
+        return -1;
     }
 
     public static void swap(int[] nums, int first, int second){
