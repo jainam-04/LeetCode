@@ -34,24 +34,18 @@ public class PalindromeInMinimumNumberOfSwaps {
     public static boolean checkIsPalindrome(char[] ch){
         int start = 0;
         int end = ch.length - 1;
-        int count = 0;
         while(start <= end){
-            if(ch[start] == ch[end]){
-                count++;
+            if(ch[start] != ch[end]){
+                return false;
             }
             start++;
             end--;
         }
-        if(ch.length % 2 == 0){
-            return count == ch.length / 2;
-        }
-        else{
-            return count - 1 == ch.length / 2;
-        }
+        return true;
     }
 
     public static void main(String[] args) {
-        String s = "abbba";
+        String s = "racecar";
         minimumNumberOfSwaps(s);
     }
 }
