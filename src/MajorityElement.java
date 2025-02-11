@@ -1,26 +1,19 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class MajorityElement {
     public static int majorityElement(int[] nums){
-        int majority_index = 0;
-        int count = 1;
-        for(int i = 0; i < nums.length; i++){
-            if(nums[majority_index] == nums[i]){
-                count++;
-            }
-            else{
-                count--;
-            }
-            if(count == 0){
-                majority_index = i;
-                count = 1;
-            }
-        }
-        count = 0;
+        HashMap<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
-            if (nums[majority_index] == num) {
-                count++;
+            int occurrence = map.getOrDefault(num, 0) + 1;
+            map.put(num, occurrence);
+        }
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
+            if(entry.getValue() > nums.length / 2){
+                return entry.getKey();
             }
         }
-        return nums[majority_index];
+        return -1;
     }
 
     public static void main(String[] args) {
