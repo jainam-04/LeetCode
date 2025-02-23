@@ -1,10 +1,12 @@
-class Node{
+package reversedlinkedlist;
+
+class ListNode {
     int val;
-    Node next;
-    Node head = null;
+    ListNode next;
+    ListNode head = null;
 
     public void push(int val){
-        Node node = new Node();
+        ListNode node = new ListNode();
         node.val = val;
         node.next = head;
         head = node;
@@ -14,7 +16,7 @@ class Node{
         if(head == null){
             return;
         }
-        Node temp = head;
+        ListNode temp = head;
         while(temp != null){
             System.out.print(temp.val + " -> ");
             temp = temp.next;
@@ -26,9 +28,9 @@ class Node{
         if(head == null){
             return;
         }
-        Node previous = null;
-        Node next;
-        Node current = head;
+        ListNode previous = null;
+        ListNode next;
+        ListNode current = head;
         while(current != null){
             next = current.next;
             current.next = previous;
@@ -41,7 +43,7 @@ class Node{
 
 public class ReversedLinkedList {
     public static void main(String[] args) {
-        Node node = new Node();
+        ListNode node = new ListNode();
         node.push(1);
         node.push(2);
         node.push(3);
